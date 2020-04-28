@@ -1,11 +1,30 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+// import logo from "./logo.svg";
+// import "./App.css";
+
+class ContactList extends React.Component {
+	render() {
+		// const people = [
+		// 	{ name: "Yousef" },
+		// 	{ name: "Khalid" },
+		// 	{ name: "Majeed" },
+		// ];
+		const people = this.props.contacts;
+
+		return (
+			<ol>
+				{people.map((person) => (
+					<li key={person.name}>{person.name}</li>
+				))}
+			</ol>
+		);
+	}
+}
 
 function App() {
 	return (
 		<div className="App">
-			<header className="App-header">
+			{/* <header className="App-header">
 				<img src={logo} className="App-logo" alt="logo" />
 				<h1 className="App-title">Hello World!</h1>
 				<p>
@@ -19,7 +38,13 @@ function App() {
 				>
 					Learn React
 				</a>
-			</header>
+			</header> */}
+			<ContactList
+				contacts={[{ name: "Yousef" }, { name: "Khalid" }, { name: "Majeed" }]}
+			/>
+			<ContactList
+				contacts={[{ name: "Amanda" }, { name: "Justin" }, { name: "John" }]}
+			/>
 		</div>
 	);
 }
